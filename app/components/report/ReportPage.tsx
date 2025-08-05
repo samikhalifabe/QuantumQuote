@@ -44,7 +44,7 @@ export function ReportPage() {
           </p>
         </div>
         <div className="flex items-center gap-4">
-          <button className="inline-flex items-center justify-center px-2.5 py-1 h-[26px] bg-green-800 text-white rounded-md text-xs text-center font-medium border border-brand/30 hover:bg-green-900 hover:border-brand transition-all duration-200 ease-out outline-none cursor-pointer">
+          <button className="btn-supabase h-[26px]">
             Exporter PDF
           </button>
           <button className="inline-flex items-center justify-center px-2.5 py-1 h-[26px] bg-secondary text-foreground rounded-md text-xs text-center font-medium border border-border hover:border-neutral-700 transition-all duration-200 ease-out outline-none cursor-pointer">
@@ -80,9 +80,9 @@ export function ReportPage() {
               {kpis.slice(0, 2).map((kpi, index) => (
                 <div key={index} className="text-center p-4 bg-secondary rounded-lg border border-border">
                   <div className="flex justify-center mb-2">
-                    {React.cloneElement(kpi.icon as React.ReactElement, { className: "w-5 h-5 text-brand" })}
+                    {React.cloneElement(kpi.icon as React.ReactElement, { className: "w-5 h-5 text-[#3ECF8E]" })}
                   </div>
-                  <div className="text-2xl font-bold text-brand">{kpi.value}</div>
+                  <div className="text-2xl font-bold text-[#3ECF8E]">{kpi.value}</div>
                   <div className="text-xs text-foreground-quaternary mt-1">{kpi.label}</div>
                 </div>
               ))}
@@ -108,7 +108,7 @@ export function ReportPage() {
             <span>{tab.label}</span>
             {/* Active indicator line */}
             <div 
-              className={`absolute bottom-0 left-0 right-0 h-0.5 bg-primary transition-all duration-200 ${
+              className={`absolute bottom-0 left-0 right-0 h-0.5 bg-[#3ECF8E] transition-all duration-200 ${
                 activeTab === tab.id ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'
               }`}
             />
@@ -124,7 +124,7 @@ export function ReportPage() {
             <Card className="border border-border bg-card rounded-xl">
               <CardHeader className="bg-secondary border-b border-border">
                 <CardTitle className="text-foreground flex items-center gap-2" style={{ fontFamily: theme.fonts.primary }}>
-                  <FileText className="w-5 h-5 text-brand" />
+                  <FileText className="w-5 h-5 text-[#3ECF8E]" />
                   Résumé exécutif
                 </CardTitle>
               </CardHeader>
@@ -151,21 +151,21 @@ export function ReportPage() {
               <CardContent className="p-8">
                 <div className="grid gap-4">
                   <div className="flex items-start gap-3 p-4 bg-secondary rounded-lg border border-border">
-                    <CheckCircle2 className="w-5 h-5 text-brand mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 text-[#3ECF8E] mt-0.5" />
                     <div className="flex-1">
                       <h4 className="font-medium text-foreground mb-1">Base de données centralisée</h4>
                       <p className="text-sm text-foreground-quaternary">Système de gestion centralisée des prospects et clients</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3 p-4 bg-secondary rounded-lg border border-border">
-                    <CheckCircle2 className="w-5 h-5 text-brand mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 text-[#3ECF8E] mt-0.5" />
                     <div className="flex-1">
                       <h4 className="font-medium text-foreground mb-1">CRM mobile</h4>
                       <p className="text-sm text-foreground-quaternary">Application mobile pour gérer les clients sur le terrain</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3 p-4 bg-secondary rounded-lg border border-border">
-                    <CheckCircle2 className="w-5 h-5 text-brand mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 text-[#3ECF8E] mt-0.5" />
                     <div className="flex-1">
                       <h4 className="font-medium text-foreground mb-1">Envoi d'emails</h4>
                       <p className="text-sm text-foreground-quaternary">Système d'emailing intégré pour les campagnes</p>
@@ -187,7 +187,7 @@ export function ReportPage() {
                 <div className="grid gap-4">
                   {meetingReport.identifiedNeeds.medium.map((need) => (
                     <div key={need.id} className="flex items-start gap-3 p-4 bg-secondary rounded-lg border border-border">
-                      <CheckCircle2 className="w-5 h-5 text-brand mt-0.5" />
+                      <CheckCircle2 className="w-5 h-5 text-[#3ECF8E] mt-0.5" />
                       <div className="flex-1">
                         <h4 className="font-medium text-foreground mb-1">{need.task}</h4>
                         <p className="text-sm text-foreground-quaternary">{need.description}</p>
@@ -207,7 +207,7 @@ export function ReportPage() {
               <Card className="border border-border bg-card rounded-xl">
                 <CardHeader className="bg-secondary border-b border-border">
                   <CardTitle className="text-foreground flex items-center gap-2" style={{ fontFamily: theme.fonts.primary }}>
-                    <AlertTriangle className="w-5 h-5 text-brand" />
+                    <AlertTriangle className="w-5 h-5 text-[#3ECF8E]" />
                     Problématiques identifiées
                   </CardTitle>
                 </CardHeader>
@@ -215,7 +215,7 @@ export function ReportPage() {
                   <ul className="space-y-3">
                     {meetingReport.keyPoints.currentIssues.map((issue, index) => (
                       <li key={index} className="flex items-start gap-3 text-foreground-tertiary">
-                        <span className="text-brand mt-0.5">•</span>
+                        <span className="text-[#3ECF8E] mt-0.5">•</span>
                         <span>{issue}</span>
                       </li>
                     ))}
@@ -226,7 +226,7 @@ export function ReportPage() {
               <Card className="border border-border bg-card rounded-xl">
                 <CardHeader className="bg-secondary border-b border-border">
                   <CardTitle className="text-foreground flex items-center gap-2" style={{ fontFamily: theme.fonts.primary }}>
-                    <Lightbulb className="w-5 h-5 text-brand" />
+                    <Lightbulb className="w-5 h-5 text-[#3ECF8E]" />
                     Solutions proposées
                   </CardTitle>
                 </CardHeader>
@@ -234,7 +234,7 @@ export function ReportPage() {
                   <ul className="space-y-3">
                     {meetingReport.keyPoints.proposedSolutions.map((solution, index) => (
                       <li key={index} className="flex items-start gap-3 text-foreground-tertiary">
-                        <span className="text-brand mt-0.5">•</span>
+                        <span className="text-[#3ECF8E] mt-0.5">•</span>
                         <span>{solution}</span>
                       </li>
                     ))}
@@ -252,7 +252,7 @@ export function ReportPage() {
             <Card className="border border-border bg-card rounded-xl">
               <CardHeader className="bg-secondary border-b border-border">
                 <CardTitle className="text-foreground flex items-center gap-2" style={{ fontFamily: theme.fonts.primary }}>
-                  <Euro className="w-5 h-5 text-primary" />
+                  <Euro className="w-5 h-5 text-[#3ECF8E]" />
                   Approche budgétaire
                 </CardTitle>
               </CardHeader>
@@ -267,7 +267,7 @@ export function ReportPage() {
                     <ul className="space-y-3">
                       {meetingReport.budgetApproach.benefits.map((benefit, index) => (
                         <li key={index} className="flex items-start gap-3 text-sm text-foreground-tertiary">
-                          <CheckCircle2 className="w-4 h-4 text-primary mt-0.5" />
+                          <CheckCircle2 className="w-4 h-4 text-[#3ECF8E] mt-0.5" />
                           <span>{benefit}</span>
                         </li>
                       ))}
@@ -296,13 +296,13 @@ export function ReportPage() {
                   <p className="text-foreground-tertiary mb-4">{phase.description}</p>
                   <div>
                     <h4 className="font-medium text-foreground mb-3 flex items-center gap-2">
-                      <Package className="w-4 h-4 text-brand" />
+                      <Package className="w-4 h-4 text-[#3ECF8E]" />
                       Livrables
                     </h4>
                     <ul className="space-y-2">
                       {phase.deliverables.map((deliverable, idx) => (
                         <li key={idx} className="flex items-center gap-2 text-sm text-foreground-tertiary">
-                          <CheckCircle2 className="w-4 h-4 text-brand" />
+                          <CheckCircle2 className="w-4 h-4 text-[#3ECF8E]" />
                           {deliverable}
                         </li>
                       ))}
@@ -320,7 +320,7 @@ export function ReportPage() {
             <Card className="border border-border bg-card rounded-xl">
               <CardHeader className="bg-secondary border-b border-border">
                 <CardTitle className="text-foreground flex items-center gap-2" style={{ fontFamily: theme.fonts.primary }}>
-                  <ArrowRight className="w-5 h-5 text-brand" />
+                  <ArrowRight className="w-5 h-5 text-[#3ECF8E]" />
                   Actions immédiates
                 </CardTitle>
               </CardHeader>
@@ -328,7 +328,7 @@ export function ReportPage() {
                 <div className="grid gap-4">
                   {meetingReport.nextSteps.immediate.map((step, index) => (
                     <div key={index} className="flex items-center gap-4 p-4 bg-secondary rounded-lg border border-border">
-                      <span className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold">
+                      <span className="w-8 h-8 bg-[#3ECF8E]/20 text-[#3ECF8E] rounded-full flex items-center justify-center font-bold border border-[#3ECF8E]/30">
                         {index + 1}
                       </span>
                       <span className="text-foreground">{step}</span>
@@ -341,7 +341,7 @@ export function ReportPage() {
             <Card className="border border-border bg-card rounded-xl">
               <CardHeader className="bg-secondary border-b border-border">
                 <CardTitle className="text-foreground flex items-center gap-2" style={{ fontFamily: theme.fonts.primary }}>
-                  <FileText className="w-5 h-5 text-brand" />
+                  <FileText className="w-5 h-5 text-[#3ECF8E]" />
                   Livrables attendus
                 </CardTitle>
               </CardHeader>
@@ -349,7 +349,7 @@ export function ReportPage() {
                 <ul className="space-y-3">
                   {meetingReport.nextSteps.deliverables.map((deliverable, index) => (
                     <li key={index} className="flex items-start gap-3 text-foreground-tertiary">
-                      <CheckCircle2 className="w-4 h-4 text-brand mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-[#3ECF8E] mt-0.5" />
                       <span>{deliverable}</span>
                     </li>
                   ))}

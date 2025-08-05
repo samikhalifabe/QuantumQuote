@@ -13,8 +13,8 @@ const phases = [
     status: "À venir",
     duration: "4-6 semaines",
     progress: 0,
-    color: "text-brand",
-    bgColor: "bg-brand/20",
+    color: "text-[#3ECF8E]",
+    bgColor: "bg-[#3ECF8E]/20",
   },
   {
     id: "phase-2",
@@ -23,8 +23,8 @@ const phases = [
     status: "Planifié",
     duration: "2-4 semaines",
     progress: 0,
-    color: "text-brand",
-    bgColor: "bg-brand/20",
+    color: "text-[#3ECF8E]",
+    bgColor: "bg-[#3ECF8E]/20",
   },
   {
     id: "phase-3",
@@ -33,8 +33,8 @@ const phases = [
     status: "Planifié",
     duration: "2 semaines",
     progress: 0,
-    color: "text-brand",
-    bgColor: "bg-brand/20",
+    color: "text-[#3ECF8E]",
+    bgColor: "bg-[#3ECF8E]/20",
   },
   {
     id: "phase-4",
@@ -43,8 +43,8 @@ const phases = [
     status: "Planifié",
     duration: "2-4 semaines",
     progress: 0,
-    color: "text-brand",
-    bgColor: "bg-brand/20",
+    color: "text-[#3ECF8E]",
+    bgColor: "bg-[#3ECF8E]/20",
   },
   {
     id: "phase-5",
@@ -53,8 +53,8 @@ const phases = [
     status: "Future",
     duration: "À définir",
     progress: 0,
-    color: "text-brand",
-    bgColor: "bg-brand/20",
+    color: "text-[#3ECF8E]",
+    bgColor: "bg-[#3ECF8E]/20",
   },
 ];
 
@@ -90,7 +90,7 @@ export function PhasesWidget({ onPhaseClick }: PhasesWidgetProps) {
             <div
               key={phase.id}
               onClick={() => handlePhaseClick(index)}
-              className="flex items-center gap-3 p-3 rounded-lg bg-muted border border-border hover:border-primary/30 transition-all duration-200 cursor-pointer"
+              className="flex items-center gap-3 p-3 rounded-lg bg-muted border border-border hover:border-[#3ECF8E]/30 transition-all duration-200 cursor-pointer"
             >
               <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${phase.bgColor}`}>
                 <Icon className={`w-4 h-4 ${phase.color}`} />

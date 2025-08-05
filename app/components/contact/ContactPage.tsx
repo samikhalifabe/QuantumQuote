@@ -15,8 +15,8 @@ export function ContactPage() {
       href: 'tel:+32488182452',
       icon: Phone,
       description: 'Disponible du lundi au vendredi, 9h-18h',
-      bgColor: 'bg-primary/20',
-      iconColor: 'text-primary'
+      bgColor: 'bg-[#3ECF8E]/20',
+      iconColor: 'text-[#3ECF8E]'
     },
     {
       id: 'whatsapp',
@@ -25,8 +25,8 @@ export function ContactPage() {
       href: 'https://wa.me/32488182452',
       icon: MessageSquare,
       description: 'Réponse rapide et suivi en temps réel',
-      bgColor: 'bg-primary/20',
-      iconColor: 'text-primary'
+      bgColor: 'bg-[#3ECF8E]/20',
+      iconColor: 'text-[#3ECF8E]'
     },
     {
       id: 'email',
@@ -35,8 +35,8 @@ export function ContactPage() {
       href: 'mailto:sami@indigo-studio.be',
       icon: Mail,
       description: 'Pour toute demande détaillée',
-      bgColor: 'bg-primary/20',
-      iconColor: 'text-primary'
+      bgColor: 'bg-[#3ECF8E]/20',
+      iconColor: 'text-[#3ECF8E]'
     }
   ]
 
@@ -58,7 +58,7 @@ export function ContactPage() {
       <Card className="border border-border bg-card rounded-xl">
         <CardContent className="p-8">
           <div className="flex items-start gap-6">
-            <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-primary">
+            <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-[#3ECF8E]">
               <Image src="/images/sami-profile.jpg" alt="Sami - Responsable de projet" width={64} height={64} className="object-cover" />
             </div>
             <div className="flex-1">
@@ -77,7 +77,7 @@ export function ContactPage() {
         {contactMethods.map((method) => {
           const Icon = method.icon
           return (
-            <Card key={method.id} className="border border-border bg-card rounded-xl hover:border-primary/30 transition-all duration-200">
+            <Card key={method.id} className="border border-border bg-card rounded-xl hover:border-[#3ECF8E]/30 transition-all duration-200">
               <CardHeader className="pb-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
@@ -131,7 +131,7 @@ export function ContactPage() {
                 href="https://wa.me/32488182452?text=Bonjour,%20j'ai%20besoin%20d'assistance%20technique"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-2.5 py-1 h-[26px] bg-primary text-primary-foreground rounded-md text-xs text-center font-medium border border-primary/30 hover:bg-primary/90 hover:border-primary transition-all duration-200 ease-out outline-none cursor-pointer"
+                className="btn-supabase h-[26px]"
               >
                 Contacter sur WhatsApp
               </a>
@@ -143,7 +143,7 @@ export function ContactPage() {
               </p>
               <a 
                 href="mailto:sami@indigo-studio.be?subject=Question%20commerciale%20-%20Projet%20CRM"
-                className="inline-flex items-center justify-center px-2.5 py-1 h-[26px] bg-primary text-primary-foreground rounded-md text-xs text-center font-medium border border-primary/30 hover:bg-primary/90 hover:border-primary transition-all duration-200 ease-out outline-none cursor-pointer"
+                className="btn-supabase h-[26px]"
               >
                 Envoyer un email
               </a>

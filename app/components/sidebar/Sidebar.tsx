@@ -24,7 +24,7 @@ export function Sidebar({ navigationItems, activeSection, onSectionChange }: Sid
     >
       <div className="p-4 flex-1">
         <div className={`flex items-center ${!isExpanded ? 'justify-center' : 'gap-2.5'} mb-4`}>
-          <Codesandbox className="w-6 h-6 text-primary flex-shrink-0" />
+          <Codesandbox className="w-6 h-6 text-[#3ECF8E] flex-shrink-0" />
           {isExpanded && (
             <span 
               className="font-semibold text-text-primary dark:text-foreground text-base whitespace-nowrap" 
@@ -68,7 +68,7 @@ export function Sidebar({ navigationItems, activeSection, onSectionChange }: Sid
                 style={{ fontFamily: theme.fonts.primary }}
                 title={!isExpanded ? item.title : undefined}
               >
-                <item.icon className={`w-4 h-4 flex-shrink-0 ${activeSection === item.id ? 'text-primary' : ''}`} />
+                <item.icon className={`w-4 h-4 flex-shrink-0 ${activeSection === item.id ? 'text-[#3ECF8E]' : ''}`} />
                 {isExpanded && <span className="whitespace-nowrap">{item.title}</span>}
               </button>
             )
@@ -79,7 +79,7 @@ export function Sidebar({ navigationItems, activeSection, onSectionChange }: Sid
       {/* Toggle button */}
       <button
         onClick={() => setIsCollapsed(!isCollapsed)}
-        className="absolute -right-3 top-8 w-6 h-6 bg-secondary dark:bg-neutral-800 border border-border dark:border-neutral-800 rounded-full flex items-center justify-center hover:bg-primary hover:border-primary transition-colors group"
+        className="absolute -right-3 top-8 w-6 h-6 bg-secondary dark:bg-neutral-800 border border-border dark:border-neutral-800 rounded-full flex items-center justify-center hover:bg-[#3ECF8E] hover:border-[#3ECF8E] transition-colors group"
       >
         {isCollapsed ? (
           <ChevronRight className="w-3 h-3 text-foreground-secondary group-hover:text-background" />

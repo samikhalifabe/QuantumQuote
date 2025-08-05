@@ -166,7 +166,7 @@ export default function PricingPage({ onNavigateToContact, onNavigateToRoadmap }
         <div className="flex items-center gap-2">
           <button 
             onClick={onNavigateToRoadmap}
-            className="inline-flex items-center justify-center px-2.5 py-1 h-[26px] bg-primary text-primary-foreground rounded-md text-xs text-center font-medium hover:bg-primary-hover transition-all duration-200 ease-out outline-none cursor-pointer">
+            className="btn-supabase h-[26px]">
             Roadmap
           </button>
           <button 
@@ -201,7 +201,7 @@ export default function PricingPage({ onNavigateToContact, onNavigateToRoadmap }
               <div className="flex-1 text-left">
                 <div>{phase.name}</div>
                 {phase.price && (
-                  <div className={`text-xs mt-1 ${activeTab === index ? 'text-primary' : 'text-foreground-tertiary'}`}>
+                  <div className={`text-xs mt-1 ${activeTab === index ? 'text-[#3ECF8E]' : 'text-foreground-tertiary'}`}>
                     {phase.price.toLocaleString('fr-FR')}€
                   </div>
                 )}
@@ -243,7 +243,7 @@ export default function PricingPage({ onNavigateToContact, onNavigateToRoadmap }
                     <div className="text-right">
                       {phase.price ? (
                         <div>
-                          <div className="text-[24px] font-bold text-brand">
+                          <div className="text-[24px] font-bold text-[#3ECF8E]">
                             {phase.price.toLocaleString('fr-FR')}€
                           </div>
                           <div className="text-sm text-foreground-tertiary mt-1">HT</div>
@@ -260,13 +260,13 @@ export default function PricingPage({ onNavigateToContact, onNavigateToRoadmap }
                   <div className="grid md:grid-cols-2 gap-8">
                     <div>
                       <h4 className="font-semibold text-foreground mb-4 flex items-center gap-2">
-                        <CheckCircle2 className="w-5 h-5 text-brand" />
+                        <CheckCircle2 className="w-5 h-5 text-[#3ECF8E]" />
                         Livrables inclus
                       </h4>
                       <ul className="space-y-1.5">
                         {phase.details.map((detail, idx) => (
                           <li key={idx} className="flex items-start gap-2 text-sm text-foreground-tertiary leading-normal">
-                            <span className="text-brand flex-shrink-0">•</span>
+                            <span className="text-[#3ECF8E] flex-shrink-0">•</span>
                             <span>{detail}</span>
                           </li>
                         ))}
@@ -274,22 +274,22 @@ export default function PricingPage({ onNavigateToContact, onNavigateToRoadmap }
                     </div>
                     <div>
                       <h4 className="font-semibold text-foreground mb-4 flex items-center gap-2">
-                        <Zap className="w-5 h-5 text-brand" />
+                        <Zap className="w-5 h-5 text-[#3ECF8E]" />
                         Technologies utilisées
                       </h4>
                       <div className="flex flex-wrap gap-2">
                         {phase.technologies.map((tech) => (
                           <span
                             key={tech}
-                            className="px-3 py-1.5 bg-brand/20 text-brand rounded-md text-xs font-medium border border-brand/30"
+                            className="px-3 py-1.5 bg-[#3ECF8E]/20 text-[#3ECF8E] rounded-md text-xs font-medium border border-[#3ECF8E]/30"
                           >
                             {tech}
                           </span>
                         ))}
                       </div>
                       {!phase.price && (
-                        <div className="mt-6 p-4 bg-brand/10 border border-brand/30 rounded-lg">
-                          <p className="text-sm text-brand">
+                        <div className="mt-6 p-4 bg-[#3ECF8E]/10 border border-[#3ECF8E]/30 rounded-lg">
+                          <p className="text-sm text-[#3ECF8E]">
                             <strong>Note:</strong> {phase.phase === 'Phase 5' 
                               ? 'Le budget sera défini après analyse des solutions spécifiques à implémenter et des technologies IA disponibles au moment du développement.'
                               : 'Le budget sera défini après analyse des solutions spécifiques à implémenter.'
@@ -319,7 +319,7 @@ export default function PricingPage({ onNavigateToContact, onNavigateToRoadmap }
               <div key={service.name} className="p-4 bg-secondary rounded-lg border border-border">
                 <div className="flex items-start gap-3">
                   <div className="flex-shrink-0">
-                    {React.cloneElement(service.icon as React.ReactElement, { className: "w-5 h-5 text-brand" })}
+                    {React.cloneElement(service.icon as React.ReactElement, { className: "w-5 h-5 text-[#3ECF8E]" })}
                   </div>
                   <div className="flex-1">
                     <h4 className="font-semibold text-foreground">{service.name}</h4>
@@ -336,7 +336,7 @@ export default function PricingPage({ onNavigateToContact, onNavigateToRoadmap }
       <Card className="border border-border bg-card rounded-xl">
         <CardHeader>
           <CardTitle className="text-foreground flex items-center gap-2 text-lg" style={{ fontFamily: theme.fonts.primary }}>
-            <FileText className="w-5 h-5 text-brand" />
+            <FileText className="w-5 h-5 text-[#3ECF8E]" />
             Récapitulatif du devis
           </CardTitle>
         </CardHeader>
@@ -359,7 +359,7 @@ export default function PricingPage({ onNavigateToContact, onNavigateToRoadmap }
               <div className="pt-3 mt-3 border-t border-border">
                 <div className="flex justify-between items-center">
                   <span className="text-base font-medium text-foreground">Total phases définies</span>
-                  <span className="text-base font-semibold text-brand">{totalBudget.toLocaleString('fr-FR')}€</span>
+                  <span className="text-base font-semibold text-[#3ECF8E]">{totalBudget.toLocaleString('fr-FR')}€</span>
                 </div>
               </div>
             </div>
@@ -367,7 +367,7 @@ export default function PricingPage({ onNavigateToContact, onNavigateToRoadmap }
             <div className="mt-6 p-4 bg-secondary border border-border rounded-lg">
               <div className="flex items-start gap-3">
                 <div className="flex-shrink-0 mt-0.5">
-                  <Zap className="w-4 h-4 text-brand" />
+                  <Zap className="w-4 h-4 text-[#3ECF8E]" />
                 </div>
                 <div>
                   <p className="text-sm font-medium text-foreground mb-1">Approche recommandée</p>
@@ -389,7 +389,7 @@ export default function PricingPage({ onNavigateToContact, onNavigateToRoadmap }
         <div className="flex items-center justify-center gap-2">
           <button 
             onClick={onNavigateToContact}
-            className="inline-flex items-center justify-center px-2.5 py-1 h-[26px] bg-primary text-primary-foreground rounded-md text-xs text-center font-medium hover:bg-primary-hover transition-all duration-200 ease-out outline-none cursor-pointer">
+            className="btn-supabase h-[26px]">
             Valider le devis
           </button>
           <button 

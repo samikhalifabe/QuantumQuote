@@ -22,7 +22,7 @@ export function TranscriptPage() {
     const parts = text.split(new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi'))
     return parts.map((part, index) => 
       part.toLowerCase() === query.toLowerCase() ? 
-        <span key={index} className="bg-primary/30 text-primary font-medium">{part}</span> : 
+        <span key={index} className="bg-[#3ECF8E]/30 text-[#3ECF8E] font-medium">{part}</span> : 
         part
     )
   }
@@ -81,7 +81,7 @@ export function TranscriptPage() {
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <button className="inline-flex items-center justify-center px-2.5 py-1 h-[26px] bg-primary text-primary-foreground rounded-md text-xs text-center font-medium border border-primary/30 hover:bg-primary-hover hover:border-primary transition-all duration-200 ease-out outline-none cursor-pointer">
+          <button className="btn-supabase h-[26px]">
             <Download className="w-3 h-3 mr-1" />
             Exporter
           </button>
@@ -143,7 +143,7 @@ export function TranscriptPage() {
             <span>{tab.label}</span>
             {/* Active indicator line */}
             <div 
-              className={`absolute bottom-0 left-0 right-0 h-0.5 bg-primary transition-all duration-200 ${
+              className={`absolute bottom-0 left-0 right-0 h-0.5 bg-[#3ECF8E] transition-all duration-200 ${
                 currentTab === tab.id ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'
               }`}
             />
@@ -159,7 +159,7 @@ export function TranscriptPage() {
             {transcripts.map((transcript) => (
               <Card 
                 key={transcript.id}
-                className="border border-border bg-card rounded-xl cursor-pointer hover:border-primary transition-colors"
+                className="border border-border bg-card rounded-xl cursor-pointer hover:border-[#3ECF8E] transition-colors"
                 onClick={() => {
                   setSelectedTranscript(transcript)
                   setCurrentTab('content')
@@ -200,7 +200,7 @@ export function TranscriptPage() {
                   placeholder="Rechercher dans la transcription..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-11 pr-4 py-3 bg-card border border-border rounded-lg text-foreground placeholder-foreground-quaternary focus:outline-none focus:border-primary transition-colors"
+                  className="w-full pl-11 pr-4 py-3 bg-card border border-border rounded-lg text-foreground placeholder-foreground-quaternary focus:outline-none focus:border-[#3ECF8E] transition-colors"
                   style={{ fontFamily: theme.fonts.primary }}
                 />
               </div>
@@ -212,7 +212,7 @@ export function TranscriptPage() {
                     <button
                       key={index}
                       onClick={() => setSearchQuery(keyword)}
-                      className="inline-flex items-center justify-center px-2.5 py-1 h-[26px] bg-primary text-primary-foreground rounded-md text-xs text-center font-medium border border-primary/30 hover:bg-primary-hover hover:border-primary transition-all duration-200 ease-out outline-none cursor-pointer"
+                      className="btn-supabase h-[26px]"
                     >
                       {keyword}
                     </button>
@@ -245,12 +245,12 @@ export function TranscriptPage() {
                         <div
                           className={`inline-flex items-center justify-center px-2.5 py-1 h-[26px] rounded-md text-xs text-center font-medium transition-all duration-200 ease-out outline-none cursor-pointer ${
                             isSelected
-                              ? 'bg-primary text-primary-foreground border border-primary/30'
+                              ? 'bg-[#3ECF8E]/20 text-[#3ECF8E] border border-[#3ECF8E]/30'
                               : 'bg-secondary text-foreground border border-border hover:border-border-secondary'
                           }`}
                         >
                           <div className={`w-2 h-2 rounded-full mr-1.5 ${
-                            isSelected ? 'bg-primary-foreground' : 'bg-foreground-tertiary'
+                            isSelected ? 'bg-[#3ECF8E]-foreground' : 'bg-foreground-tertiary'
                           }`} />
                           {speaker.name}
                         </div>
@@ -282,7 +282,7 @@ export function TranscriptPage() {
                   return (
                     <div key={index} className="flex gap-4">
                       <div className="flex-shrink-0">
-                        <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center font-bold text-primary-foreground">
+                        <div className="w-10 h-10 bg-[#3ECF8E]/20 rounded-full flex items-center justify-center font-bold text-[#3ECF8E] border border-[#3ECF8E]/30">
                           {speaker?.initials || '?'}
                         </div>
                       </div>
@@ -331,7 +331,7 @@ export function TranscriptPage() {
                 <Card key={speaker.id} className="border border-border bg-card rounded-xl">
                   <CardContent className="p-6">
                     <div className="flex items-center gap-4 mb-4">
-                      <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center font-bold text-primary-foreground text-lg">
+                      <div className="w-12 h-12 bg-[#3ECF8E]/20 rounded-full flex items-center justify-center font-bold text-[#3ECF8E] text-lg border border-[#3ECF8E]/30">
                         {speaker.initials}
                       </div>
                       <div>
@@ -355,7 +355,7 @@ export function TranscriptPage() {
                       <div className="mt-3">
                         <div className="w-full bg-secondary rounded-full h-2">
                           <div 
-                            className="bg-primary h-2 rounded-full transition-all duration-300"
+                            className="bg-[#3ECF8E] h-2 rounded-full transition-all duration-300"
                             style={{ width: `${percentage}%` }}
                           />
                         </div>

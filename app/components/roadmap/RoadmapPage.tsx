@@ -68,7 +68,7 @@ export function RoadmapPage({ selectedPhase, onNavigateToPricing, onNavigateToCo
   const getStatusColor = (status: string) => {
     switch (status) {
       case "À venir":
-        return "bg-brand text-primary-foreground"
+        return "bg-[#3ECF8E] text-white"
       case "À planifier":
         return "bg-secondary text-foreground-tertiary"
       default:
@@ -93,7 +93,7 @@ export function RoadmapPage({ selectedPhase, onNavigateToPricing, onNavigateToCo
         <div className="flex items-center gap-2">
           <button 
             onClick={onNavigateToPricing}
-            className="inline-flex items-center justify-center px-2.5 py-1 h-[26px] bg-green-800 text-primary-foreground rounded-md text-xs text-center font-medium border border-brand/30 hover:bg-green-900 hover:border-brand transition-all duration-200 ease-out outline-none cursor-pointer"
+            className="btn-supabase h-[26px]"
           >
             Tarification
           </button>
@@ -113,8 +113,8 @@ export function RoadmapPage({ selectedPhase, onNavigateToPricing, onNavigateToCo
           <Card className="border border-border shadow-sm bg-card rounded-xl">
             <CardHeader className="bg-secondary rounded-t-xl border-b border-border">
               <CardTitle className="text-sm font-semibold flex items-center gap-2 text-foreground-secondary" style={{ fontFamily: theme.fonts.primary }}>
-                <div className="w-6 h-6 bg-brand rounded-lg flex items-center justify-center">
-                  <Calendar className="w-4 h-4 text-primary-foreground" />
+                <div className="w-6 h-6 bg-[#3ECF8E] rounded-lg flex items-center justify-center">
+                  <Calendar className="w-4 h-4 text-[#3ECF8E]-foreground" />
                 </div>
                 Phases du projet
               </CardTitle>
@@ -139,14 +139,14 @@ export function RoadmapPage({ selectedPhase, onNavigateToPricing, onNavigateToCo
                       >
                         {/* Timeline Node */}
                         <div className={`absolute left-0 w-12 h-12 rounded-full border-4 border-card shadow-lg flex items-center justify-center ${
-                          isActive ? 'bg-primary' : 'bg-card'
+                          isActive ? 'bg-[#3ECF8E]' : 'bg-card'
                         }`}>
-                          <Icon className={`w-6 h-6 ${isActive ? 'text-primary-foreground' : 'text-primary'}`} />
+                          <Icon className={`w-6 h-6 ${isActive ? 'text-[#3ECF8E]-foreground' : 'text-[#3ECF8E]'}`} />
                         </div>
 
                         {/* Phase Info */}
                         <div className={`ml-20 p-4 rounded-xl border ${
-                          isActive ? 'border-primary bg-secondary' : 'border-border hover:bg-secondary'
+                          isActive ? 'border-[#3ECF8E] bg-secondary' : 'border-border hover:bg-secondary'
                         }`}>
                           <div className="flex items-start justify-between">
                             <div className="flex-1">
@@ -193,10 +193,10 @@ export function RoadmapPage({ selectedPhase, onNavigateToPricing, onNavigateToCo
             <Card className="border border-border shadow-sm bg-card rounded-xl">
               <CardHeader className="bg-secondary rounded-t-xl border-b border-border">
                 <CardTitle className="text-sm font-semibold flex items-center gap-2 text-foreground-secondary" style={{ fontFamily: theme.fonts.primary }}>
-                  <div className="w-6 h-6 bg-brand rounded-lg flex items-center justify-center">
+                  <div className="w-6 h-6 bg-[#3ECF8E] rounded-lg flex items-center justify-center">
                     {(() => {
                       const Icon = getPhaseIcon(currentPhase.id)
-                      return <Icon className="w-4 h-4 text-primary-foreground" />
+                      return <Icon className="w-4 h-4 text-[#3ECF8E]-foreground" />
                     })()}
                   </div>
                   Détails de la phase
@@ -210,13 +210,13 @@ export function RoadmapPage({ selectedPhase, onNavigateToPricing, onNavigateToCo
                 <div className="space-y-4">
                   <div>
                     <h4 className="text-sm font-semibold text-foreground flex items-center gap-2 mb-2" style={{ fontFamily: theme.fonts.primary }}>
-                      <Package className="w-4 h-4 text-brand" />
+                      <Package className="w-4 h-4 text-[#3ECF8E]" />
                       Livrables
                     </h4>
                     <ul className="space-y-2">
                       {currentPhase.deliverables.map((deliverable, idx) => (
                         <li key={idx} className="flex items-center gap-2 text-sm text-foreground-secondary" style={{ fontFamily: theme.fonts.primary }}>
-                          <CheckCircle2 className="w-4 h-4 text-brand" />
+                          <CheckCircle2 className="w-4 h-4 text-[#3ECF8E]" />
                           {deliverable}
                         </li>
                       ))}
@@ -231,8 +231,8 @@ export function RoadmapPage({ selectedPhase, onNavigateToPricing, onNavigateToCo
           <Card className="border border-border shadow-sm bg-card rounded-xl">
             <CardHeader className="bg-secondary rounded-t-xl border-b border-border">
               <CardTitle className="text-sm font-semibold flex items-center gap-2 text-foreground-secondary" style={{ fontFamily: theme.fonts.primary }}>
-                <div className="w-6 h-6 bg-brand rounded-lg flex items-center justify-center">
-                  <Target className="w-4 h-4 text-primary-foreground" />
+                <div className="w-6 h-6 bg-[#3ECF8E] rounded-lg flex items-center justify-center">
+                  <Target className="w-4 h-4 text-[#3ECF8E]-foreground" />
                 </div>
                 Besoins associés
               </CardTitle>
@@ -286,8 +286,8 @@ export function RoadmapPage({ selectedPhase, onNavigateToPricing, onNavigateToCo
           <Card className="border border-border shadow-sm bg-card rounded-xl">
             <CardHeader className="bg-secondary rounded-t-xl border-b border-border">
               <CardTitle className="text-sm font-semibold flex items-center gap-2 text-foreground-secondary" style={{ fontFamily: theme.fonts.primary }}>
-                <div className="w-6 h-6 bg-brand rounded-lg flex items-center justify-center">
-                  <span className="text-primary-foreground text-xs font-bold">€</span>
+                <div className="w-6 h-6 bg-[#3ECF8E] rounded-lg flex items-center justify-center">
+                  <span className="text-[#3ECF8E]-foreground text-xs font-bold">€</span>
                 </div>
                 Estimation budgétaire
               </CardTitle>
@@ -311,7 +311,7 @@ export function RoadmapPage({ selectedPhase, onNavigateToPricing, onNavigateToCo
                             Budget
                           </span>
                           {phaseBudget !== null ? (
-                            <span className="font-medium text-brand" style={{ fontFamily: theme.fonts.primary }}>
+                            <span className="font-medium text-[#3ECF8E]" style={{ fontFamily: theme.fonts.primary }}>
                               {phaseBudget.toLocaleString('fr-FR')} €
                             </span>
                           ) : (

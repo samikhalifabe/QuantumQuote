@@ -101,7 +101,7 @@ export function Dashboard({ onNavigateToRoadmap, onNavigateToPricing, onNavigate
               </h3>
               <button 
                 onClick={() => onNavigateToRoadmap && onNavigateToRoadmap(0)}
-                className="inline-flex items-center justify-center px-2.5 py-1 h-[26px] bg-primary text-primary-foreground rounded-md text-xs text-center font-medium hover:bg-primary-hover transition-all duration-200 ease-out outline-none cursor-pointer"
+                className="btn-supabase h-[26px]"
               >
                 Roadmap
               </button>
@@ -158,7 +158,7 @@ export function Dashboard({ onNavigateToRoadmap, onNavigateToPricing, onNavigate
                 {['Next.js', 'PostgreSQL', 'WhatsApp API', 'GPT-4', 'Google Maps', 'Twilio'].map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1 bg-primary/10 text-primary dark:bg-primary/20 rounded-md text-xs font-medium"
+                    className="px-3 py-1 bg-[#3ECF8E]/10 text-[#3ECF8E] dark:bg-[#3ECF8E]/20 rounded-md text-xs font-medium"
                   >
                     {tech}
                   </span>
@@ -199,11 +199,11 @@ function StatsCard({ icon: Icon, value, label, trend }: {
     <Card className="border border-border bg-card rounded-xl">
       <CardContent className="p-6">
         <div className="flex items-center justify-between">
-          <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
-            <Icon className="w-6 h-6 text-primary" />
+          <div className="w-12 h-12 bg-[#3ECF8E]/20 rounded-full flex items-center justify-center">
+            <Icon className="w-6 h-6 text-[#3ECF8E]" />
           </div>
           {trend && (
-            <span className="text-xs text-primary font-medium">{trend}</span>
+            <span className="text-xs text-[#3ECF8E] font-medium">{trend}</span>
           )}
         </div>
         <div className="mt-4">
@@ -232,11 +232,11 @@ function BenefitCard({ icon: Icon, title, description, status }: {
   status: string
 }) {
   return (
-    <Card className="border border-border bg-card dark:bg-card rounded-xl hover:border-primary/30 transition-colors">
+    <Card className="border border-border bg-card dark:bg-card rounded-xl hover:border-[#3ECF8E]/30 transition-colors">
       <CardContent className="p-5">
         <div className="flex items-start gap-3">
-          <div className="w-9 h-9 bg-primary/10 dark:bg-primary/20 rounded-lg flex items-center justify-center flex-shrink-0">
-            <Icon className="w-4 h-4 text-primary" />
+          <div className="w-9 h-9 bg-[#3ECF8E]/10 dark:bg-[#3ECF8E]/20 rounded-lg flex items-center justify-center flex-shrink-0">
+            <Icon className="w-4 h-4 text-[#3ECF8E]" />
           </div>
           <div className="flex-1">
             <h3 className="font-semibold text-foreground text-sm mb-1" style={{ fontFamily: theme.fonts.primary }}>
@@ -288,7 +288,7 @@ function PhasesProgress() {
               <div className="ml-11">
                 <div className="w-full bg-secondary rounded-full h-2">
                   <div 
-                    className="bg-primary h-2 rounded-full transition-all duration-300"
+                    className="bg-[#3ECF8E] h-2 rounded-full transition-all duration-300"
                     style={{ width: `${phase.progress}%` }}
                   />
                 </div>
@@ -337,12 +337,12 @@ function NeedsAnalysis({ onNavigateToReport }: { onNavigateToReport?: () => void
             className="text-xl font-semibold flex items-center gap-2 text-foreground" 
             style={{ fontFamily: theme.fonts.primary }}
           >
-            <Target className="w-6 h-6 text-primary" />
+            <Target className="w-6 h-6 text-[#3ECF8E]" />
             Problématiques identifiées
           </CardTitle>
           <button 
             onClick={onNavigateToReport}
-            className="inline-flex items-center justify-center px-2.5 py-1 h-[26px] bg-primary text-primary-foreground rounded-md text-xs text-center font-medium hover:bg-primary-hover transition-all duration-200 ease-out outline-none cursor-pointer"
+            className="btn-supabase h-[26px]"
           >
             Compte-rendu
           </button>
@@ -351,14 +351,14 @@ function NeedsAnalysis({ onNavigateToReport }: { onNavigateToReport?: () => void
       <CardContent className="pt-6">
         <div className="grid grid-cols-2 gap-4">
           {needs.map((need) => (
-            <div key={need.category} className="p-5 bg-secondary rounded-lg border border-border hover:border-primary/30 transition-colors">
+            <div key={need.category} className="p-5 bg-secondary rounded-lg border border-border hover:border-[#3ECF8E]/30 transition-colors">
               <div className="flex items-start justify-between mb-3">
                 <h4 className="text-base font-semibold text-foreground">{need.category}</h4>
                 <div className={`w-2.5 h-2.5 rounded-full ${
                   need.impact === 'high' ? 'bg-red-500/80' : 'bg-yellow-500/80'
                 }`} />
               </div>
-              <p className="text-sm text-primary font-medium mb-2">{need.count}</p>
+              <p className="text-sm text-[#3ECF8E] font-medium mb-2">{need.count}</p>
               <p className="text-xs text-foreground-secondary leading-relaxed">{need.description}</p>
             </div>
           ))}

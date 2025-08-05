@@ -10,7 +10,7 @@
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: 158 64% 52%;
+    --primary: 162 66% 53%;
     --primary-foreground: 0 0% 98%;
     --secondary: 240 4.8% 95.9%;
     --secondary-foreground: 240 5.9% 10%;
@@ -77,6 +77,15 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  
+  /* Supabase button style */
+  .btn-supabase {
+    @apply inline-flex items-center justify-center px-3 py-1.5 bg-[#3ECF8E]/20 text-[#3ECF8E] rounded-md text-xs font-medium border border-[#3ECF8E]/30 hover:bg-[#3ECF8E]/30 transition-all duration-200;
+  }
+  
+  .dark .btn-supabase {
+    @apply bg-[#006139]/20 text-[#3ECF8E] border-[#3ECF8E]/30 hover:bg-[#006139]/30;
   }
 }
 
