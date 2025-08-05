@@ -87,5 +87,48 @@ body {
   .dark .btn-supabase {
     @apply bg-[#006139]/20 text-[#3ECF8E] border-[#3ECF8E]/30 hover:bg-[#006139]/30;
   }
+  
+  /* Animated border card */
+  .animated-border-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: none;
+    background: linear-gradient(
+      45deg,
+      #059669,
+      #10B981,
+      #22C55E,
+      #3ECF8E,
+      #06B6D4,
+      #0891B2,
+      #059669,
+      #10B981,
+      #22C55E
+    );
+    background-size: 400% 400%;
+    animation: border-rotate 35s linear infinite;
+    padding: 1px;
+  }
+
+  .animated-border-card > div {
+    background: hsl(var(--background));
+    border-radius: 11px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .dark .animated-border-card > div {
+    background: #171717;
+  }
+
+  @keyframes border-rotate {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 400% 50%;
+    }
+  }
 }
 

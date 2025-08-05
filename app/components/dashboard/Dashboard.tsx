@@ -47,30 +47,30 @@ export function Dashboard({ onNavigateToRoadmap, onNavigateToPricing, onNavigate
         {/* Main Stats */}
         <div className="col-span-8 space-y-6">
           {/* Primary Card - ROI Highlight */}
-          <div className="relative rounded-xl overflow-hidden bg-gradient-to-br from-emerald-500 to-cyan-500 dark:from-emerald-600 dark:to-cyan-600">
+          <div className="animated-border-card overflow-hidden">
             <div className="p-6">
               <div>
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                    <TrendingUp className="w-5 h-5 text-white" />
+                  <div className="w-10 h-10 bg-[#3ECF8E]/20 rounded-lg flex items-center justify-center">
+                    <TrendingUp className="w-5 h-5 text-[#3ECF8E]" />
                   </div>
                 </div>
                 <div 
-                  className="text-4xl font-bold mb-2 text-white" 
+                  className="text-4xl font-bold mb-2 text-foreground" 
                   style={{ fontFamily: theme.fonts.primary }}
                 >
                   94% d'économie
                 </div>
                 <div 
-                  className="text-white/90" 
+                  className="text-foreground-secondary" 
                   style={{ fontFamily: theme.fonts.primary }}
                 >
                   vs 2 employés (100-120k€/an)
                 </div>
-                <div className="mt-2 text-sm text-white/80">
+                <div className="mt-2 text-sm text-foreground-tertiary">
                   ROI en moins de 2 mois
                 </div>
-                <div className="mt-3 text-xs text-white/70 leading-relaxed max-w-sm">
+                <div className="mt-3 text-xs text-foreground-quaternary leading-relaxed max-w-sm">
                   Investissement unique contre 120 000€/an pour 2 employés. 
                   Solution automatisée 24/7 sans congés ni charges sociales.
                 </div>
@@ -79,7 +79,7 @@ export function Dashboard({ onNavigateToRoadmap, onNavigateToPricing, onNavigate
                     variant="secondary"
                     size="sm"
                     onClick={onNavigateToPricing}
-                    className="gap-2 bg-white/20 hover:bg-white/30 text-white border border-white/30 hover:border-white/50 backdrop-blur-sm"
+                    className="gap-2 bg-secondary hover:bg-[#3ECF8E]/20 text-[#3ECF8E] border border-[#3ECF8E]/30 hover:border-[#3ECF8E]"
                     style={{ fontFamily: theme.fonts.primary }}
                   >
                     Tarification
