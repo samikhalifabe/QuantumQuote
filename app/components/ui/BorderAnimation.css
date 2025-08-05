@@ -1,0 +1,57 @@
+.border-animation {
+  position: relative;
+  background: linear-gradient(45deg, #3ECF8E, #10B981, #3ECF8E, #10B981);
+  background-size: 400% 400%;
+  border-radius: 12px;
+  padding: 2px;
+  animation: gradient-move 3s ease infinite;
+}
+
+.border-animation > div {
+  background: #171717;
+  border-radius: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes gradient-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Version alternative avec rotation */
+.border-spin {
+  position: relative;
+  border-radius: 12px;
+  background: #171717;
+  border: 2px solid transparent;
+}
+
+.border-spin::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #3ECF8E 0%, transparent 25%, transparent 75%, #3ECF8E 100%);
+  border-radius: inherit;
+  animation: rotate-border 2s linear infinite;
+  z-index: -1;
+}
+
+@keyframes rotate-border {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
