@@ -68,11 +68,11 @@ export function RoadmapPage({ selectedPhase, onNavigateToPricing, onNavigateToCo
   const getStatusColor = (status: string) => {
     switch (status) {
       case "À venir":
-        return "bg-[#3ECF8E] text-black"
+        return "bg-brand text-primary-foreground"
       case "À planifier":
-        return "bg-[#262626] text-[#A1A1AA]"
+        return "bg-secondary text-foreground-tertiary"
       default:
-        return "bg-[#262626] text-[#71717A]"
+        return "bg-secondary text-foreground-tertiary"
     }
   }
 
@@ -84,22 +84,22 @@ export function RoadmapPage({ selectedPhase, onNavigateToPricing, onNavigateToCo
       <div className="flex items-start justify-between mt-12 mb-16">
         <div className="max-w-3xl">
           <h1 className="text-[36px] leading-[40px] font-normal mb-4" style={{ fontFamily: theme.fonts.primary }}>
-            <span className="text-[#FAFAFA]">Roadmap</span> <span className="text-[#B4B4B4]">du projet CRM & IA</span>
+            <span className="text-foreground">Roadmap</span> <span className="text-foreground-secondary">du projet CRM & IA</span>
           </h1>
-          <p className="text-[18px] leading-[28px] font-normal text-[#898989] tracking-normal">
+          <p className="text-[18px] leading-[28px] font-normal text-foreground-quaternary tracking-normal">
             Découvrez les différentes phases de développement de votre solution sur mesure, avec une approche progressive et maîtrisée.
           </p>
         </div>
         <div className="flex items-center gap-2">
           <button 
             onClick={onNavigateToPricing}
-            className="inline-flex items-center justify-center px-2.5 py-1 h-[26px] bg-[#004D2D] text-white rounded-md text-xs text-center font-medium border border-[#3ECF8E]/30 hover:bg-[#006139] hover:border-[#3ECF8E] transition-all duration-200 ease-out outline-none cursor-pointer"
+            className="inline-flex items-center justify-center px-2.5 py-1 h-[26px] bg-green-800 text-primary-foreground rounded-md text-xs text-center font-medium border border-brand/30 hover:bg-green-900 hover:border-brand transition-all duration-200 ease-out outline-none cursor-pointer"
           >
             Tarification
           </button>
           <button 
             onClick={onNavigateToContact}
-            className="inline-flex items-center justify-center px-2.5 py-1 h-[26px] bg-[#181818] text-[#FAFAFA] rounded-md text-xs text-center font-medium border border-[#262626] hover:border-[#404040] transition-all duration-200 ease-out outline-none cursor-pointer"
+            className="inline-flex items-center justify-center px-2.5 py-1 h-[26px] bg-secondary text-foreground rounded-md text-xs text-center font-medium border border-border hover:border-neutral-700 transition-all duration-200 ease-out outline-none cursor-pointer"
           >
             Discuter du projet
           </button>
@@ -110,18 +110,18 @@ export function RoadmapPage({ selectedPhase, onNavigateToPricing, onNavigateToCo
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Left Column - Timeline */}
         <div className="space-y-4">
-          <Card className="border border-[#262626] shadow-sm bg-[#171717] rounded-xl">
-            <CardHeader className="bg-[#262626] rounded-t-xl border-b border-[#262626]">
-              <CardTitle className="text-sm font-semibold flex items-center gap-2 text-[#B4B4B4]" style={{ fontFamily: theme.fonts.primary }}>
-                <div className="w-6 h-6 bg-[#3ECF8E] rounded-lg flex items-center justify-center">
-                  <Calendar className="w-4 h-4 text-black" />
+          <Card className="border border-border shadow-sm bg-card rounded-xl">
+            <CardHeader className="bg-secondary rounded-t-xl border-b border-border">
+              <CardTitle className="text-sm font-semibold flex items-center gap-2 text-foreground-secondary" style={{ fontFamily: theme.fonts.primary }}>
+                <div className="w-6 h-6 bg-brand rounded-lg flex items-center justify-center">
+                  <Calendar className="w-4 h-4 text-primary-foreground" />
                 </div>
                 Phases du projet
               </CardTitle>
             </CardHeader>
             <CardContent className="p-6">
               <div className="relative">
-                <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-[#262626]" />
+                <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-border" />
                 
                 <div className="space-y-6">
                   {meetingReport.recommendations.map((phase, index) => {
@@ -138,30 +138,30 @@ export function RoadmapPage({ selectedPhase, onNavigateToPricing, onNavigateToCo
                         onClick={() => setActivePhase(phase.id)}
                       >
                         {/* Timeline Node */}
-                        <div className={`absolute left-0 w-12 h-12 rounded-full border-4 border-[#171717] shadow-lg flex items-center justify-center ${
-                          isActive ? 'bg-[#3ECF8E]' : 'bg-[#171717]'
+                        <div className={`absolute left-0 w-12 h-12 rounded-full border-4 border-card shadow-lg flex items-center justify-center ${
+                          isActive ? 'bg-primary' : 'bg-card'
                         }`}>
-                          <Icon className={`w-6 h-6 ${isActive ? 'text-black' : 'text-[#3ECF8E]'}`} />
+                          <Icon className={`w-6 h-6 ${isActive ? 'text-primary-foreground' : 'text-primary'}`} />
                         </div>
 
                         {/* Phase Info */}
                         <div className={`ml-20 p-4 rounded-xl border ${
-                          isActive ? 'border-[#3ECF8E] bg-[#262626]' : 'border-[#262626] hover:bg-[#262626]'
+                          isActive ? 'border-primary bg-secondary' : 'border-border hover:bg-secondary'
                         }`}>
                           <div className="flex items-start justify-between">
                             <div className="flex-1">
                               <div className="flex items-center gap-3">
-                                <h3 className="font-semibold text-white" style={{ fontFamily: theme.fonts.primary }}>
+                                <h3 className="font-semibold text-foreground" style={{ fontFamily: theme.fonts.primary }}>
                                   {phase.name}
                                 </h3>
                                 <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(status)}`}>
                                   {status}
                                 </span>
                               </div>
-                              <p className="text-sm text-[#B4B4B4] mt-1" style={{ fontFamily: theme.fonts.primary }}>
+                              <p className="text-sm text-foreground-secondary mt-1" style={{ fontFamily: theme.fonts.primary }}>
                                 {phase.description}
                               </p>
-                              <div className="flex items-center gap-4 mt-2 text-xs text-[#898989]">
+                              <div className="flex items-center gap-4 mt-2 text-xs text-foreground-quaternary">
                                 <div className="flex items-center gap-1">
                                   <Clock className="w-3 h-3" />
                                   <span style={{ fontFamily: theme.fonts.primary }}>{phase.duration}</span>
@@ -173,7 +173,7 @@ export function RoadmapPage({ selectedPhase, onNavigateToPricing, onNavigateToCo
                               </div>
                             </div>
                             {index < meetingReport.recommendations.length - 1 && (
-                              <ArrowRight className="w-4 h-4 text-[#898989] mt-1" />
+                              <ArrowRight className="w-4 h-4 text-foreground-quaternary mt-1" />
                             )}
                           </div>
                         </div>
@@ -190,33 +190,33 @@ export function RoadmapPage({ selectedPhase, onNavigateToPricing, onNavigateToCo
         <div className="space-y-6">
           {/* Phase Details */}
           {currentPhase && (
-            <Card className="border border-[#262626] shadow-sm bg-[#171717] rounded-xl">
-              <CardHeader className="bg-[#262626] rounded-t-xl border-b border-[#262626]">
-                <CardTitle className="text-sm font-semibold flex items-center gap-2 text-[#B4B4B4]" style={{ fontFamily: theme.fonts.primary }}>
-                  <div className="w-6 h-6 bg-[#3ECF8E] rounded-lg flex items-center justify-center">
+            <Card className="border border-border shadow-sm bg-card rounded-xl">
+              <CardHeader className="bg-secondary rounded-t-xl border-b border-border">
+                <CardTitle className="text-sm font-semibold flex items-center gap-2 text-foreground-secondary" style={{ fontFamily: theme.fonts.primary }}>
+                  <div className="w-6 h-6 bg-brand rounded-lg flex items-center justify-center">
                     {(() => {
                       const Icon = getPhaseIcon(currentPhase.id)
-                      return <Icon className="w-4 h-4 text-black" />
+                      return <Icon className="w-4 h-4 text-primary-foreground" />
                     })()}
                   </div>
                   Détails de la phase
                 </CardTitle>
               </CardHeader>
               <CardContent className="p-6">
-                <h3 className="font-semibold text-lg text-white mb-4" style={{ fontFamily: theme.fonts.primary }}>
+                <h3 className="font-semibold text-lg text-foreground mb-4" style={{ fontFamily: theme.fonts.primary }}>
                   {currentPhase.name}
                 </h3>
                 
                 <div className="space-y-4">
                   <div>
-                    <h4 className="text-sm font-semibold text-white flex items-center gap-2 mb-2" style={{ fontFamily: theme.fonts.primary }}>
-                      <Package className="w-4 h-4 text-[#3ECF8E]" />
+                    <h4 className="text-sm font-semibold text-foreground flex items-center gap-2 mb-2" style={{ fontFamily: theme.fonts.primary }}>
+                      <Package className="w-4 h-4 text-brand" />
                       Livrables
                     </h4>
                     <ul className="space-y-2">
                       {currentPhase.deliverables.map((deliverable, idx) => (
-                        <li key={idx} className="flex items-center gap-2 text-sm text-[#B4B4B4]" style={{ fontFamily: theme.fonts.primary }}>
-                          <CheckCircle2 className="w-4 h-4 text-[#3ECF8E]" />
+                        <li key={idx} className="flex items-center gap-2 text-sm text-foreground-secondary" style={{ fontFamily: theme.fonts.primary }}>
+                          <CheckCircle2 className="w-4 h-4 text-brand" />
                           {deliverable}
                         </li>
                       ))}
@@ -228,11 +228,11 @@ export function RoadmapPage({ selectedPhase, onNavigateToPricing, onNavigateToCo
           )}
 
           {/* Related Needs */}
-          <Card className="border border-[#262626] shadow-sm bg-[#171717] rounded-xl">
-            <CardHeader className="bg-[#262626] rounded-t-xl border-b border-[#262626]">
-              <CardTitle className="text-sm font-semibold flex items-center gap-2 text-[#B4B4B4]" style={{ fontFamily: theme.fonts.primary }}>
-                <div className="w-6 h-6 bg-[#3ECF8E] rounded-lg flex items-center justify-center">
-                  <Target className="w-4 h-4 text-black" />
+          <Card className="border border-border shadow-sm bg-card rounded-xl">
+            <CardHeader className="bg-secondary rounded-t-xl border-b border-border">
+              <CardTitle className="text-sm font-semibold flex items-center gap-2 text-foreground-secondary" style={{ fontFamily: theme.fonts.primary }}>
+                <div className="w-6 h-6 bg-brand rounded-lg flex items-center justify-center">
+                  <Target className="w-4 h-4 text-primary-foreground" />
                 </div>
                 Besoins associés
               </CardTitle>
@@ -262,16 +262,16 @@ export function RoadmapPage({ selectedPhase, onNavigateToPricing, onNavigateToCo
                   })
                   
                   return phaseNeeds.map(need => (
-                    <div key={need.id} className="flex items-start gap-3 p-3 bg-[#262626] rounded-xl">
+                    <div key={need.id} className="flex items-start gap-3 p-3 bg-secondary rounded-xl">
                       <div className={`w-2 h-2 rounded-full mt-1.5 ${
                         need.priority === 'high' ? 'bg-red-500' : 
                         need.priority === 'medium' ? 'bg-yellow-500' : 'bg-green-500'
                       }`} />
                       <div className="flex-1">
-                        <div className="text-sm font-medium text-white" style={{ fontFamily: theme.fonts.primary }}>
+                        <div className="text-sm font-medium text-foreground" style={{ fontFamily: theme.fonts.primary }}>
                           {need.task}
                         </div>
-                        <div className="text-xs text-[#898989] mt-1" style={{ fontFamily: theme.fonts.primary }}>
+                        <div className="text-xs text-foreground-quaternary mt-1" style={{ fontFamily: theme.fonts.primary }}>
                           {need.description}
                         </div>
                       </div>
@@ -283,11 +283,11 @@ export function RoadmapPage({ selectedPhase, onNavigateToPricing, onNavigateToCo
           </Card>
 
           {/* Budget */}
-          <Card className="border border-[#262626] shadow-sm bg-[#171717] rounded-xl">
-            <CardHeader className="bg-[#262626] rounded-t-xl border-b border-[#262626]">
-              <CardTitle className="text-sm font-semibold flex items-center gap-2 text-[#B4B4B4]" style={{ fontFamily: theme.fonts.primary }}>
-                <div className="w-6 h-6 bg-[#3ECF8E] rounded-lg flex items-center justify-center">
-                  <span className="text-black text-xs font-bold">€</span>
+          <Card className="border border-border shadow-sm bg-card rounded-xl">
+            <CardHeader className="bg-secondary rounded-t-xl border-b border-border">
+              <CardTitle className="text-sm font-semibold flex items-center gap-2 text-foreground-secondary" style={{ fontFamily: theme.fonts.primary }}>
+                <div className="w-6 h-6 bg-brand rounded-lg flex items-center justify-center">
+                  <span className="text-primary-foreground text-xs font-bold">€</span>
                 </div>
                 Estimation budgétaire
               </CardTitle>
@@ -307,31 +307,31 @@ export function RoadmapPage({ selectedPhase, onNavigateToPricing, onNavigateToCo
                     <>
                       <div className="space-y-2 text-sm">
                         <div className="flex items-center justify-between">
-                          <span className="text-[#B4B4B4]" style={{ fontFamily: theme.fonts.primary }}>
+                          <span className="text-foreground-secondary" style={{ fontFamily: theme.fonts.primary }}>
                             Budget
                           </span>
                           {phaseBudget !== null ? (
-                            <span className="font-medium text-[#3ECF8E]" style={{ fontFamily: theme.fonts.primary }}>
+                            <span className="font-medium text-brand" style={{ fontFamily: theme.fonts.primary }}>
                               {phaseBudget.toLocaleString('fr-FR')} €
                             </span>
                           ) : (
-                            <span className="font-medium text-[#B4B4B4]" style={{ fontFamily: theme.fonts.primary }}>
+                            <span className="font-medium text-foreground-secondary" style={{ fontFamily: theme.fonts.primary }}>
                               À définir
                             </span>
                           )}
                         </div>
                         <div className="flex items-center justify-between">
-                          <span className="text-[#B4B4B4]" style={{ fontFamily: theme.fonts.primary }}>
+                          <span className="text-foreground-secondary" style={{ fontFamily: theme.fonts.primary }}>
                             Durée estimée
                           </span>
-                          <span className="font-medium text-white" style={{ fontFamily: theme.fonts.primary }}>
+                          <span className="font-medium text-foreground" style={{ fontFamily: theme.fonts.primary }}>
                             {currentPhase?.duration}
                           </span>
                         </div>
                       </div>
                       
                       {phaseBudget === null && (
-                        <p className="text-xs text-[#898989] mt-3 text-center" style={{ fontFamily: theme.fonts.primary }}>
+                        <p className="text-xs text-foreground-quaternary mt-3 text-center" style={{ fontFamily: theme.fonts.primary }}>
                           {phaseIndex === 1 ? 
                             "Selon les solutions d'emailing et de prospection à implémenter" :
                             "Selon la complexité et les technologies d'IA à implémenter"

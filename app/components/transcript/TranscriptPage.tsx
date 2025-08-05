@@ -22,7 +22,7 @@ export function TranscriptPage() {
     const parts = text.split(new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi'))
     return parts.map((part, index) => 
       part.toLowerCase() === query.toLowerCase() ? 
-        <span key={index} className="bg-[#3ECF8E]/30 text-[#3ECF8E] font-medium">{part}</span> : 
+        <span key={index} className="bg-primary/30 text-primary font-medium">{part}</span> : 
         part
     )
   }
@@ -49,7 +49,7 @@ export function TranscriptPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <p className="text-[#71717A]">Chargement des transcriptions...</p>
+        <p className="text-foreground-quaternary">Chargement des transcriptions...</p>
       </div>
     )
   }
@@ -57,7 +57,7 @@ export function TranscriptPage() {
   if (transcripts.length === 0) {
     return (
       <div className="flex items-center justify-center h-64">
-        <p className="text-[#71717A]">Aucune transcription disponible</p>
+        <p className="text-foreground-quaternary">Aucune transcription disponible</p>
       </div>
     )
   }
@@ -74,18 +74,18 @@ export function TranscriptPage() {
       <div className="flex items-start justify-between mt-12 mb-16">
         <div className="max-w-3xl">
           <h1 className="text-[36px] leading-[40px] font-normal mb-4" style={{ fontFamily: theme.fonts.primary }}>
-            <span className="text-[#B4B4B4]">Transcriptions</span> <span className="text-[#FAFAFA]">des réunions</span>
+            <span className="text-foreground-secondary">Transcriptions</span> <span className="text-foreground">des réunions</span>
           </h1>
-          <p className="text-[18px] leading-[28px] font-normal text-[#898989] tracking-normal">
+          <p className="text-[18px] leading-[28px] font-normal text-foreground-quaternary tracking-normal">
             Consultez et analysez les transcriptions détaillées de vos réunions commerciales.
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <button className="inline-flex items-center justify-center px-2.5 py-1 h-[26px] bg-[#004D2D] text-white rounded-md text-xs text-center font-medium border border-[#3ECF8E]/30 hover:bg-[#006139] hover:border-[#3ECF8E] transition-all duration-200 ease-out outline-none cursor-pointer">
+          <button className="inline-flex items-center justify-center px-2.5 py-1 h-[26px] bg-primary text-primary-foreground rounded-md text-xs text-center font-medium border border-primary/30 hover:bg-primary-hover hover:border-primary transition-all duration-200 ease-out outline-none cursor-pointer">
             <Download className="w-3 h-3 mr-1" />
             Exporter
           </button>
-          <button className="inline-flex items-center justify-center px-2.5 py-1 h-[26px] bg-[#181818] text-[#FAFAFA] rounded-md text-xs text-center font-medium border border-[#262626] hover:border-[#404040] transition-all duration-200 ease-out outline-none cursor-pointer">
+          <button className="inline-flex items-center justify-center px-2.5 py-1 h-[26px] bg-secondary text-secondary-foreground rounded-md text-xs text-center font-medium border border-border hover:border-border-secondary transition-all duration-200 ease-out outline-none cursor-pointer">
             <Share2 className="w-3 h-3 mr-1" />
             Partager
           </button>
@@ -94,14 +94,14 @@ export function TranscriptPage() {
 
       {/* Transcript Info Card */}
       {selectedTranscript && (
-        <Card className="border border-[#262626] bg-[#171717] rounded-xl">
+        <Card className="border border-border bg-card rounded-xl">
           <CardContent className="p-8">
             <div className="flex items-start justify-between">
               <div>
-                <h2 className="text-2xl font-bold text-[#FAFAFA] mb-2" style={{ fontFamily: theme.fonts.primary }}>
+                <h2 className="text-2xl font-bold text-foreground mb-2" style={{ fontFamily: theme.fonts.primary }}>
                   Réunion de définition des besoins métiers
                 </h2>
-                <div className="flex items-center gap-6 text-sm text-[#A1A1AA]">
+                <div className="flex items-center gap-6 text-sm text-foreground-tertiary">
                   <span className="flex items-center gap-2">
                     <Calendar className="w-4 h-4" />
                     {selectedTranscript.date}
@@ -126,21 +126,27 @@ export function TranscriptPage() {
       )}
 
       {/* Tab Navigation */}
-      <div className="flex gap-2 border-b border-[#262626]">
+      <div className="flex gap-2 border-b border-border">
         {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => setCurrentTab(tab.id)}
             disabled={!selectedTranscript && tab.id !== 'selection'}
-            className={`flex items-center gap-2 px-4 py-3 text-sm font-medium transition-all relative ${
+            className={`flex items-center gap-2 px-4 py-3 text-sm font-medium transition-all duration-200 relative ${
               currentTab === tab.id
-                ? 'text-[#FAFAFA] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-[#3ECF8E]'
-                : 'text-[#71717A] hover:text-[#A1A1AA] disabled:opacity-50 disabled:cursor-not-allowed'
+                ? 'text-foreground'
+                : 'text-foreground-quaternary hover:text-foreground-tertiary disabled:opacity-50 disabled:cursor-not-allowed'
             }`}
             style={{ fontFamily: theme.fonts.primary }}
           >
             {tab.icon}
             <span>{tab.label}</span>
+            {/* Active indicator line */}
+            <div 
+              className={`absolute bottom-0 left-0 right-0 h-0.5 bg-primary transition-all duration-200 ${
+                currentTab === tab.id ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'
+              }`}
+            />
           </button>
         ))}
       </div>
@@ -153,15 +159,15 @@ export function TranscriptPage() {
             {transcripts.map((transcript) => (
               <Card 
                 key={transcript.id}
-                className="border border-[#262626] bg-[#171717] rounded-xl cursor-pointer hover:border-[#3ECF8E] transition-colors"
+                className="border border-border bg-card rounded-xl cursor-pointer hover:border-primary transition-colors"
                 onClick={() => {
                   setSelectedTranscript(transcript)
                   setCurrentTab('content')
                 }}
               >
                 <CardContent className="p-6">
-                  <h3 className="font-semibold text-[#FAFAFA] mb-2">Réunion de définition des besoins métiers</h3>
-                  <div className="space-y-2 text-sm text-[#71717A]">
+                  <h3 className="font-semibold text-foreground mb-2">Réunion de définition des besoins métiers</h3>
+                  <div className="space-y-2 text-sm text-foreground-quaternary">
                     <p className="flex items-center gap-2">
                       <Calendar className="w-3 h-3" />
                       {transcript.date}
@@ -188,13 +194,13 @@ export function TranscriptPage() {
             <div className="space-y-3">
               {/* Search Bar */}
               <div className="relative">
-                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-4 h-4 text-[#71717A]" />
+                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-4 h-4 text-foreground-quaternary" />
                 <input
                   type="text"
                   placeholder="Rechercher dans la transcription..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-11 pr-4 py-3 bg-[#171717] border border-[#262626] rounded-lg text-[#FAFAFA] placeholder-[#71717A] focus:outline-none focus:border-[#3ECF8E] transition-colors"
+                  className="w-full pl-11 pr-4 py-3 bg-card border border-border rounded-lg text-foreground placeholder-foreground-quaternary focus:outline-none focus:border-primary transition-colors"
                   style={{ fontFamily: theme.fonts.primary }}
                 />
               </div>
@@ -206,7 +212,7 @@ export function TranscriptPage() {
                     <button
                       key={index}
                       onClick={() => setSearchQuery(keyword)}
-                      className="inline-flex items-center justify-center px-2.5 py-1 h-[26px] bg-[#004D2D] text-white rounded-md text-xs text-center font-medium border border-[#3ECF8E]/30 hover:bg-[#006139] hover:border-[#3ECF8E] transition-all duration-200 ease-out outline-none cursor-pointer"
+                      className="inline-flex items-center justify-center px-2.5 py-1 h-[26px] bg-primary text-primary-foreground rounded-md text-xs text-center font-medium border border-primary/30 hover:bg-primary-hover hover:border-primary transition-all duration-200 ease-out outline-none cursor-pointer"
                     >
                       {keyword}
                     </button>
@@ -239,12 +245,12 @@ export function TranscriptPage() {
                         <div
                           className={`inline-flex items-center justify-center px-2.5 py-1 h-[26px] rounded-md text-xs text-center font-medium transition-all duration-200 ease-out outline-none cursor-pointer ${
                             isSelected
-                              ? 'bg-[#004D2D] text-white border border-[#3ECF8E]/30'
-                              : 'bg-[#181818] text-[#FAFAFA] border border-[#262626] hover:border-[#404040]'
+                              ? 'bg-primary text-primary-foreground border border-primary/30'
+                              : 'bg-secondary text-foreground border border-border hover:border-border-secondary'
                           }`}
                         >
                           <div className={`w-2 h-2 rounded-full mr-1.5 ${
-                            isSelected ? 'bg-[#3ECF8E]' : 'bg-[#71717A]'
+                            isSelected ? 'bg-primary-foreground' : 'bg-foreground-tertiary'
                           }`} />
                           {speaker.name}
                         </div>
@@ -255,7 +261,7 @@ export function TranscriptPage() {
               )}
             </div>
             
-            <Card className="border border-[#262626] bg-[#171717] rounded-xl">
+            <Card className="border border-border bg-card rounded-xl">
               <CardContent className="p-8">
                 <div className="space-y-6">
                   {selectedTranscript.segments
@@ -276,16 +282,16 @@ export function TranscriptPage() {
                   return (
                     <div key={index} className="flex gap-4">
                       <div className="flex-shrink-0">
-                        <div className="w-10 h-10 bg-[#3ECF8E] rounded-full flex items-center justify-center font-bold text-black">
+                        <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center font-bold text-primary-foreground">
                           {speaker?.initials || '?'}
                         </div>
                       </div>
                       <div className="flex-1">
                         <div className="flex items-baseline gap-3 mb-1">
-                          <span className="font-semibold text-[#FAFAFA]">{speaker?.name || 'Inconnu'}</span>
-                          <span className="text-xs text-[#71717A]">{segment.timestamp}</span>
+                          <span className="font-semibold text-foreground">{speaker?.name || 'Inconnu'}</span>
+                          <span className="text-xs text-foreground-quaternary">{segment.timestamp}</span>
                         </div>
-                        <p className="text-[#A1A1AA] leading-relaxed">{highlightText(segment.content, searchQuery)}</p>
+                        <p className="text-foreground-tertiary leading-relaxed">{highlightText(segment.content, searchQuery)}</p>
                       </div>
                     </div>
                   )
@@ -298,7 +304,7 @@ export function TranscriptPage() {
                     }
                     return true
                   }).length === 0 && (
-                    <div className="text-center py-8 text-[#71717A]">
+                    <div className="text-center py-8 text-foreground-quaternary">
                       Aucun résultat trouvé
                       {searchQuery && ` pour "${searchQuery}"`}
                       {selectedSpeakers.length > 0 && ` avec les filtres sélectionnés`}
@@ -322,34 +328,34 @@ export function TranscriptPage() {
                 const percentage = totalWords > 0 ? Math.round((wordCount / totalWords) * 100) : 0
               
               return (
-                <Card key={speaker.id} className="border border-[#262626] bg-[#171717] rounded-xl">
+                <Card key={speaker.id} className="border border-border bg-card rounded-xl">
                   <CardContent className="p-6">
                     <div className="flex items-center gap-4 mb-4">
-                      <div className="w-12 h-12 bg-[#3ECF8E] rounded-full flex items-center justify-center font-bold text-black text-lg">
+                      <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center font-bold text-primary-foreground text-lg">
                         {speaker.initials}
                       </div>
                       <div>
-                        <h3 className="font-semibold text-[#FAFAFA]">{speaker.name}</h3>
-                        <p className="text-sm text-[#71717A]">{speaker.role}</p>
+                        <h3 className="font-semibold text-foreground">{speaker.name}</h3>
+                        <p className="text-sm text-foreground-quaternary">{speaker.role}</p>
                       </div>
                     </div>
                     <div className="space-y-3">
                       <div className="flex justify-between items-center">
-                        <span className="text-sm text-[#898989]">Interventions</span>
-                        <span className="text-sm font-medium text-[#FAFAFA]">{speakerSegments.length}</span>
+                        <span className="text-sm text-foreground-quaternary">Interventions</span>
+                        <span className="text-sm font-medium text-foreground">{speakerSegments.length}</span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-sm text-[#898989]">Mots prononcés</span>
-                        <span className="text-sm font-medium text-[#FAFAFA]">{wordCount.toLocaleString()}</span>
+                        <span className="text-sm text-foreground-quaternary">Mots prononcés</span>
+                        <span className="text-sm font-medium text-foreground">{wordCount.toLocaleString()}</span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-sm text-[#898989]">Temps de parole</span>
-                        <span className="text-sm font-medium text-[#FAFAFA]">{percentage}%</span>
+                        <span className="text-sm text-foreground-quaternary">Temps de parole</span>
+                        <span className="text-sm font-medium text-foreground">{percentage}%</span>
                       </div>
                       <div className="mt-3">
-                        <div className="w-full bg-[#262626] rounded-full h-2">
+                        <div className="w-full bg-secondary rounded-full h-2">
                           <div 
-                            className="bg-[#3ECF8E] h-2 rounded-full transition-all duration-300"
+                            className="bg-primary h-2 rounded-full transition-all duration-300"
                             style={{ width: `${percentage}%` }}
                           />
                         </div>

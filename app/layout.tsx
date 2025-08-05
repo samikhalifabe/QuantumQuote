@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { ThemeProvider } from './contexts/ThemeContext'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -19,7 +20,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className={inter.variable}>
-      <body className="font-sans bg-[#121212] text-[#F7F7F7]">{children}</body>
+      <body className="font-sans bg-background text-foreground">
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   )
 }

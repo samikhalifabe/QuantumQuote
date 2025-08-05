@@ -34,7 +34,7 @@ const highPriorityNeeds: ChecklistItem[] = [
 const mediumPriorityNeeds: ChecklistItem[] = [
   {
     id: "need-5",
-    task: "Intégration Google Maps - Optimisation des tournées",
+    task: "Intégration Google Maps - Géolocalisation des tournées",
     completed: false,
     priority: "medium",
     description: "Calcul automatique des itinéraires optimaux"
@@ -84,56 +84,92 @@ const recommendedPhases: Phase[] = [
     id: "phase-1",
     name: "CRM de base",
     duration: "4-6 semaines",
-    description: "Mise en place de la structure fondamentale",
+    description: "Mise en place de la structure fondamentale avec initialisation complète du projet",
     deliverables: [
-      "Base de données prospects/clients",
-      "Interface mobile simple", 
-      "Système de notes basique"
+      "Configuration serveur et infrastructure cloud",
+      "Implémentation base de données PostgreSQL sécurisée",
+      "Développement API REST complète",
+      "Interface web/mobile responsive",
+      "Système d'authentification et gestion des accès",
+      "Module de gestion prospects/clients",
+      "Système de notes et historique",
+      "Import/export des données (CSV, Excel)",
+      "Tests et mise en production"
     ]
   },
   {
     id: "phase-2",
     name: "Emailing & Prospection",
     duration: "2-4 semaines", 
-    description: "Intégration d'outils de prospection et système d'emailing",
+    description: "Intégration complète des outils de prospection et système d'emailing professionnel",
     deliverables: [
-      "Intégration outils de prospection LinkedIn",
-      "Récupération automatique des contacts",
-      "Connexion système d'emailing interne/externe",
-      "Templates de campagnes personnalisées"
+      "Intégration LinkedIn Sales Navigator / PhantomBuster",
+      "Scraping automatique des profils LinkedIn ciblés",
+      "Enrichissement automatique des contacts (email, téléphone)",
+      "Intégration SendGrid/Brevo pour emailing professionnel",
+      "Système de campagnes d'emailing séquencées",
+      "Templates personnalisables avec variables dynamiques",
+      "Tracking ouvertures, clics et conversions",
+      "Gestion automatique des désabonnements",
+      "Tableau de bord analytics des campagnes",
+      "Import en masse des contacts depuis CSV/Excel"
     ]
   },
   {
     id: "phase-3",
-    name: "Optimisation",
+    name: "Géolocalisation & Tournées",
     duration: "2 semaines",
-    description: "Outils d'optimisation des tournées",
+    description: "Système intelligent de géolocalisation et planification des tournées commerciales",
     deliverables: [
-      "Intégration Google Maps",
-      "Planification intelligente des tournées",
-      "Système d'urgences"
+      "Intégration complète Google Maps API",
+      "Géolocalisation en temps réel des commerciaux",
+      "Algorithme d'optimisation des trajets (TSP)",
+      "Calcul automatique des itinéraires les plus courts",
+      "Planification par zones géographiques",
+      "Gestion des priorités clients (urgences, VIP)",
+      "Estimation temps de trajet et coûts carburant",
+      "Visualisation des tournées sur carte interactive",
+      "Historique des déplacements et statistiques",
+      "Export des tournées optimisées (PDF, Excel)"
     ]
   },
   {
     id: "phase-4",
-    name: "Automatisation", 
+    name: "Assistant conversationnel", 
     duration: "2-4 semaines",
-    description: "Intégration des assistants automatisés",
+    description: "Assistant IA WhatsApp pour communication client automatisée et intelligente",
     deliverables: [
-      "Assistant WhatsApp intégré",
-      "Relances automatiques",
-      "Comptes-rendus automatisés"
+      "Intégration WhatsApp Business API officielle",
+      "Bot IA conversationnel avec compréhension du contexte",
+      "Transcription automatique des notes vocales (Whisper)",
+      "Extraction intelligente des informations clés",
+      "Mise à jour automatique du CRM depuis WhatsApp",
+      "Système de relances automatiques programmables",
+      "Génération de comptes-rendus par GPT-4",
+      "Détection des opportunités commerciales",
+      "Templates de messages personnalisés",
+      "Synchronisation bidirectionnelle CRM ↔ WhatsApp",
+      "Historique complet des conversations"
     ]
   },
   {
     id: "phase-5",
     name: "Assistant Vocal IA",
     duration: "À définir",
-    description: "Assistant vocal pour appels téléphoniques automatisés",
+    description: "Agent IA vocal autonome pour appels téléphoniques et qualification avancée",
     deliverables: [
-      "Bot vocal pour relances téléphoniques",
-      "Prise de rendez-vous automatique",
-      "Analytics avancés des appels"
+      "Intégration Twilio pour téléphonie cloud",
+      "Agent vocal IA avec voix naturelle (ElevenLabs)",
+      "Compréhension du langage naturel en temps réel",
+      "Gestion des conversations complexes multi-tours",
+      "Qualification automatique des prospects (BANT)",
+      "Prise de rendez-vous avec synchronisation agenda",
+      "Détection des émotions et adaptation du discours",
+      "Enregistrement et transcription de tous les appels",
+      "Reporting détaillé (durée, sentiment, conversion)",
+      "Transfert intelligent vers commercial si nécessaire",
+      "Campagnes d'appels sortants automatisées",
+      "Conformité RGPD et consentement automatique"
     ]
   }
 ]
